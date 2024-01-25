@@ -8,7 +8,7 @@ volatile byte * REGBANK = (byte *)REG32;
 
 //create aliases for registers
 volatile uint8_t         * MPU6050_enable               = (uint8_t *)&REGBANK[REG_ENABLE];
-volatile uint16_t        * sample_rate                  = (float *)&REGBANK[REG_SAMPLE_RATE];
+volatile uint16_t        * sample_rate                  = (uint16_t *)&REGBANK[REG_SAMPLE_RATE];
 volatile float           * gyroscopeMisalignment        = (float *)&REGBANK[REG_GYROSCOPE_MISALIGNMENT];
 volatile float           * gyroscopeSensitivity         = (float *)&REGBANK[REG_GYROSCOPE_SENSITIVITY];
 volatile float           * gyroscopeOffset              = (float *)&REGBANK[REG_GYROSCOPE_OFFSET];
@@ -17,13 +17,13 @@ volatile float           * accelerometerSensitivity     = (float *)&REGBANK[REG_
 volatile float           * accelerometerOffset          = (float *)&REGBANK[REG_ACCELEROMETER_OFFSET];
 volatile float           * softIronMatrix               = (float *)&REGBANK[REG_SOFTIRON_MATRIX];
 volatile float           * hardIronOffset               = (float *)&REGBANK[REG_HARD_IRON_OFFSET];
-volatile uint8_t         * FusionConvention             = (float *)&REGBANK[REG_FUSION_CONVENTION];
+volatile uint8_t         * REG_FusionConvention             = (uint8_t *)&REGBANK[REG_FUSION_CONVENTION];
 volatile float           * gain                         = (float *)&REGBANK[REG_GAIN];
 volatile float           * gyroscopeRange               = (float *)&REGBANK[REG_GYROSCOPE_RANGE];
 volatile float           * accelerationRejection        = (float *)&REGBANK[REG_ACCELERATION_REJECTION];
 volatile float           * magneticRejection            = (float *)&REGBANK[REG_MAGNETIC_REJECTION];
-volatile uint8_t         *recoveryTriggerPeriod_A       = (float *)&REGBANK[REG_RECOVERY_TRIGGER_PERIOD_A];
-volatile uint8_t         * reverse_config               = (float *)&REGBANK[REG_REVERSE]; //configurationd ata about motors and encoders - shoudl they be reversed?
+volatile uint8_t         *recoveryTriggerPeriod_A       = (uint8_t *)&REGBANK[REG_RECOVERY_TRIGGER_PERIOD_A];
+volatile uint8_t         * reverse_config               = (uint8_t *)&REGBANK[REG_REVERSE]; //configurationd ata about motors and encoders - shoudl they be reversed?
 
 //Read-only registers
 volatile uint8_t  * fw_version        = (uint8_t *)&REGBANK[REG_FW_VERSION];//2-element array

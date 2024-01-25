@@ -24,7 +24,7 @@ void i2c_request_event(){
     //after reading as many as it needs
     //start at offset requestAddress - the one received from master at last transimssion
 
-    Wire.write((char *)REGBANK+request_address, MAX_TRANSMIT_SIZE);
+    Wire.write((uint8_t *)(REGBANK+request_address), MAX_TRANSMIT_SIZE);
     //Serial.print("Sent bytes starting at offset "); Serial.println(request_address);
 }
 
@@ -39,14 +39,8 @@ void i2c_receive_event(int bytes_received){
         //if necessary, set some flags for future processing
         switch (reg_address) {
             case REG_ENABLE:
-                flag_enable=true;
+                // flag_enable=true;
                 break;
-            /*case REG_ENC_RESET:
-                flag_enc_reset=true;
-                break; */
-            case REG_POWER1:
-            case REG_POWER2:
-                flag_motor_power=true;
         }
     } else {
         // this was a request to read data from registers

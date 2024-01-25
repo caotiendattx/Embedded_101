@@ -77,7 +77,7 @@ extern volatile float           * accelerometerSensitivity;
 extern volatile float           * accelerometerOffset;
 extern volatile float           * softIronMatrix;
 extern volatile float           * hardIronOffset;
-extern volatile uint8_t         * FusionConvention;
+extern volatile uint8_t         * REG_FusionConvention;
 extern volatile float           * gain;
 extern volatile float           * gyroscopeRange;
 extern volatile float           * accelerationRejection;
