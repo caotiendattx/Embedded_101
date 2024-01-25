@@ -10,9 +10,8 @@
 #define STATUS_ON        0
 
 // I2C register bank
-#define REG_SIZE32 10 //size of register bank, in 4-byte (32 bit) units
-#define RW_REGISTERS 24 //number of RW registers (in bytes)
-//this will be defined in regmap.cpp
+#define REG_SIZE32 57 //size of register bank, in 4-byte (32 bit) units
+#define RW_REGISTERS 190 //number of RW registers (in bytes)
 extern  volatile byte * REGBANK;
 
 /* **********************************************************************
@@ -29,44 +28,77 @@ extern  volatile byte * REGBANK;
  * *********************************************************************
  */
 //R/W registers
-#define REG_ENABLE              0
-//Read Only
-#define REG_FW_VERSION      24
-#define REG_WHO_AM_I        26
-#define REG_Roll            27
-#define REG_Pitch           28
-#define REG_Yaw             32
-#define REG_Gx              36
-#define REG_Gy              38
-#define REG_Gz              36
-#define REG_Ax              38
-#define REG_Ay              36
-#define REG_Az              38
+#define REG_ENABLE                      0
+#define REG_SAMPLE_RATE                 1
+#define REG_GYROSCOPE_MISALIGNMENT      3
+#define REG_GYROSCOPE_SENSITIVITY       39
+#define REG_GYROSCOPE_OFFSET            51
+#define REG_ACCELEROMETER_MISALIGNMENT  63
+#define REG_ACCELEROMETER_SENSITIVITY   99
+#define REG_ACCELEROMETER_OFFSET        111
+#define REG_SOFTIRON_MATRIX             123
+#define REG_HARD_IRON_OFFSET            159
+#define REG_FUSION_CONVENTION           171
+#define REG_GAIN                        172
+#define REG_GYROSCOPE_RANGE             176
+#define REG_ACCELERATION_REJECTION      180
+#define REG_MAGNETIC_REJECTION          184
+#define REG_RECOVERY_TRIGGER_PERIOD_A   188
+#define REG_REVERSE                     189
 
+//Read Only
+#define REG_FW_VERSION      190
+#define REG_WHO_AM_I        191
+#define REG_Roll            192
+#define REG_Pitch           196
+#define REG_Yaw             200
+#define REG_Gx              204
+#define REG_Gy              208
+#define REG_Gz              212
+#define REG_Ax              216
+#define REG_Ay              220
+#define REG_Az              224
+
+
+//                          228
 /* **********************************************************************
  *  pointer/aliases - for direct access to registers. These are forward declarations,
  * the definitions are in regmap.cpp
  * *********************************************************************
  */
-
-extern volatile uint8_t  * motor_enable;
-//extern volatile byte     * encoder_reset;
-
+//RW
+extern volatile uint8_t         * MPU6050_enable;
+extern volatile uint16_t        * sample_rate;
+extern volatile float           * gyroscopeMisalignment;
+extern volatile float           * gyroscopeSensitivity;
+extern volatile float           * gyroscopeOffset;
+extern volatile float           * accelerometerMisalignment;
+extern volatile float           * accelerometerSensitivity;
+extern volatile float           * accelerometerOffset;
+extern volatile float           * softIronMatrix;
+extern volatile float           * hardIronOffset;
+extern volatile uint8_t         * FusionConvention;
+extern volatile float           * gain;
+extern volatile float           * gyroscopeRange;
+extern volatile float           * accelerationRejection;
+extern volatile float           * magneticRejection;
+extern volatile uint8_t         *recoveryTriggerPeriod_A;
+extern volatile uint8_t         * reverse_config; //configurationd ata about motors and encoders - shoudl they be reversed?
 /* *********************************************
  *  Read-only registers
  * *********************************************
  */
 extern volatile uint8_t  * fw_version; //2-element array
 extern volatile uint8_t  * who_am_i;
-extern volatile int16_t  * roll;
-extern volatile int16_t  * pitch;
-extern volatile int16_t  * yaw;
-extern volatile int16_t  * gx;
-extern volatile int16_t  * gy;
-extern volatile int16_t  * gz;
-extern volatile int16_t  * ax;
-extern volatile int16_t  * ay;
-extern volatile int16_t  * az;
+extern volatile float  * roll;
+extern volatile float  * pitch;
+extern volatile float  * yaw;
+extern volatile float  * gx;
+extern volatile float  * gy;
+extern volatile float  * gz;
+extern volatile float  * ax;
+extern volatile float  * ay;
+extern volatile float  * az;
 /*
  FLAGS
 */

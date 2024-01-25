@@ -3,11 +3,11 @@
 
 
 //pins
-#define PIN_MPU6050_I2C_SDA     0
-#define PIN_MPU6050_I2C_SCL     1
-#define PIN_JMP0         12
-#define PIN_JMP1         13
-#define PIN_JMP2         14
+#define PIN_MPU6050_I2C_SDA     11
+#define PIN_MPU6050_I2C_SCL     12
+#define PIN_JMP0         6
+#define PIN_JMP1         7
+#define PIN_JMP2         8
 
 //function declaration to initialize pins
 void pins_init();

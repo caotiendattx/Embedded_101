@@ -6,7 +6,7 @@
  *              initial author (v1.5.2)
  */
 
-#include "MPU6050_light.h"
+#include "MPU6050.h"
 #include "Arduino.h"
 
 /* Wrap an angle in the range [-limit,+limit] (special thanks to Edgar Bonet!) */
